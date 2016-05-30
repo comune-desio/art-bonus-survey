@@ -1,40 +1,27 @@
 <!DOCTYPE html>
 <html lang="it">
   <head>
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta name="viewport" content="width=device-width">
     <title>Sondaggio per il bando Art Bonus</title>
 
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
     <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '686389534832158',
-          xfbml      : true,
-          version    : 'v2.6'
-        });
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBar-9m_Rvz10JdMm4veVLUUPRUcBT5Etw",
+        authDomain: "art-bonus-survey-desio.firebaseapp.com",
+        databaseURL: "https://art-bonus-survey-desio.firebaseio.com",
+        storageBucket: "art-bonus-survey-desio.appspot.com",
       };
-    
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
+      firebase.initializeApp(config);
     </script>
 
   </head>
   <body>
     Genesis
-
-    <div
-      class="fb-like"
-      data-share="true"
-      data-width="450"
-      data-show-faces="true">
-    </div>
-    
   </body>
 </html>
