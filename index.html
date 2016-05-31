@@ -121,18 +121,6 @@
           switch (providerName) {
             case "facebook":
               provider = new firebase.auth.FacebookAuthProvider();
-              document.getElementById('quickstart-sign-in--google').classList.add("hide");
-              document.getElementById('quickstart-sign-in--twitter').classList.add("hide");
-              break;
-            case "google":
-              provider = new firebase.auth.GoogleAuthProvider();
-              document.getElementById('quickstart-sign-in--facebook').classList.add("hide");
-              document.getElementById('quickstart-sign-in--twitter').classList.add("hide");
-            break;
-            case "twitter":
-              provider = new firebase.auth.TwitterAuthProvider();
-              document.getElementById('quickstart-sign-in--facebook').classList.add("hide");
-              document.getElementById('quickstart-sign-in--google').classList.add("hide");
               break;
             default:
               // error
@@ -142,16 +130,12 @@
         } else {
           firebase.auth().signOut();
           document.getElementById('quickstart-sign-in--facebook').classList.remove("hide");
-          document.getElementById('quickstart-sign-in--google').classList.remove("hide");
-          document.getElementById('quickstart-sign-in--twitter').classList.remove("hide");
 
           document.getElementById('vote-project-1').disabled = true;
           document.getElementById('vote-project-2').disabled = true;
           document.getElementById('vote-project-3').disabled = true;
         }
         document.getElementById('quickstart-sign-in--facebook').disabled = true;
-        document.getElementById('quickstart-sign-in--google').disabled = true;
-        document.getElementById('quickstart-sign-in--twitter').disabled = true;
       }
 
       function initApp() {
@@ -182,25 +166,6 @@
 
             document.getElementById('quickstart-sign-in-status').textContent = 'Autenticato.';
             document.getElementById('quickstart-sign-in--facebook').textContent = 'Scollega da Facebook';
-            document.getElementById('quickstart-sign-in--google').textContent = 'Scollega da Google';
-            document.getElementById('quickstart-sign-in--twitter').textContent = 'Scollega da Twitter';
-
-
-            switch (providerData[0].providerId) {
-              case "facebook.com":
-                document.getElementById('quickstart-sign-in--google').classList.add("hide");
-                document.getElementById('quickstart-sign-in--twitter').classList.add("hide");
-                break;
-              case "twitter.com":
-                document.getElementById('quickstart-sign-in--google').classList.add("hide");
-                document.getElementById('quickstart-sign-in--facebook').classList.add("hide");
-                break;
-              case "google.com":
-                document.getElementById('quickstart-sign-in--facebook').classList.add("hide");
-                document.getElementById('quickstart-sign-in--twitter').classList.add("hide");
-                break;
-              default:
-            }
 
             // debug only: not used
             accountDetails = {
@@ -220,30 +185,16 @@
             accountDetails = null;
             document.getElementById('quickstart-sign-in-status').textContent = 'Non autenticato.';
             document.getElementById('quickstart-sign-in--facebook').textContent = 'Facebook';
-            document.getElementById('quickstart-sign-in--google').textContent = 'Google';
-            document.getElementById('quickstart-sign-in--twitter').textContent = 'Twitter';
 
             document.getElementById('vote-project-1').disabled = true;
             document.getElementById('vote-project-2').disabled = true;
             document.getElementById('vote-project-3').disabled = true;
           }
           document.getElementById('quickstart-sign-in--facebook').disabled = false;
-          document.getElementById('quickstart-sign-in--google').disabled = false;
-          document.getElementById('quickstart-sign-in--twitter').disabled = false;
         });
         document.getElementById('quickstart-sign-in--facebook').addEventListener('click', function(event) {
           event.preventDefault();
           toggleSignIn("facebook");
-          return false;
-        }, false);
-        document.getElementById('quickstart-sign-in--google').addEventListener('click', function(event) {
-          event.preventDefault();
-          toggleSignIn("google");
-          return false;
-        }, false);
-        document.getElementById('quickstart-sign-in--twitter').addEventListener('click', function(event) {
-          event.preventDefault();
-          toggleSignIn("twitter");
           return false;
         }, false);
 
@@ -330,8 +281,6 @@
 
               <!-- Button that handles sign-in/sign-out -->
               <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in--facebook">Facebook</button>
-              <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in--google">Google</button>
-              <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in--twitter">Twitter</button>
 
               <!-- Container where we'll display the user details -->
 
